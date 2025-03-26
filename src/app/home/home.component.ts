@@ -12,19 +12,19 @@ import { HousingService } from '../housing.service';
     HousingLocationComponent
   ],
   template: `
-    <section>
-      <form>
-        <input type="text" placeholder="Filter by city" #filter>
-        <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
-      </form>
-      <h4><br>Bienvenido a Viviendas Acajutla esperamos encuentre lo que busca.</h4>
-    </section>
-    <section class="results">
-      <app-housing-location
-        *ngFor="let housingLocation of filteredLocationList"
-        [housingLocation]="housingLocation">
-      </app-housing-location>
-    </section>
+  <section>
+    <form>
+      <input type="text" placeholder="Filter by city" #filter (input)="filterResults(filter.value)">
+      <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+    </form>
+    <h4><br>Bienvenido a Viviendas Acajutla esperamos encuentre lo que busca.</h4>
+  </section>
+  <section class="results">
+    <app-housing-location
+      *ngFor="let housingLocation of filteredLocationList"
+      [housingLocation]="housingLocation">
+    </app-housing-location>
+  </section>
   `,
   styleUrls: ['./home.component.css'],
 })
